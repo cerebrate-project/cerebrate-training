@@ -8,6 +8,7 @@ echo ${TEXINPUTS}
 for slide in ${slidedecks[@]}; do
         cd ${slide}
         pdflatex slide.tex
+        pdflatex slide.tex
         rm *.aux *.toc *.snm *.log *.out *.nav *.vrb
         cp slide.pdf ../output/${slide}.pdf
         rm slide.pdf
