@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 
-slidedecks=("20200623-NATO-MUG-update")
+slidedecks=("c.1-cerebrate-internal")
 mkdir output
 export TEXINPUTS=::`pwd`/themes/
 echo ${TEXINPUTS}
