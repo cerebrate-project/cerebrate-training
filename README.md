@@ -9,7 +9,7 @@ All the materials are available with the complete LaTeX source code meant to ass
 
 | Slides (PDF) | Source Code |
 | ------------ | ----------- |
-| [c.1-cerebrate-internal](https://github.com/cerebrate-project/cerebrate-training/blob/main/published/c.1-cerebrate-internal.pdf) | [source](https://github.com/cerebrate-project/cerebrate-training/tree/master/c.1-cerebrate-internal) |
+| [c.1-cerebrate-internal](https://github.com/cerebrate-project/cerebrate-training/blob/main/published/c.1-cerebrate-internal.pdf) | [source](https://github.com/cerebrate-project/cerebrate-training/tree/main/c.1-cerebrate-internal) |
 
 
 ## License and Attribution
