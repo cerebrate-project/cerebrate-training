@@ -234,18 +234,67 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{queryACL}
+  \frametitle{Very few role permissions in Cerebrate}
+  \begin{itemize}
+    \item Currently just admin vs user
+    \item We will add more permissions this year still (read only, sharing group editor)
+    \item Anything you would like to see here? For example, for MISP we built o
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Synchronisation}
+  \begin{itemize}
+    \item The exchange of data between MISPs and Cerebrates happens via the synchronisation process
+    \item Uses the APIs of the tool
+    \item Authenticates using sync / API enabled users
+    \item Pull and push mechanisms
+    \item One way, two way synchronisation
+    \item Previewing, cherrypicking data
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Synchronisation}
+  \begin{itemize}
+    \item OrgA on ServerA creates a sync user for OrgB
+    \item OrgB adds a connection to orgA's server using the sync user's API key
+    \item OrgB can now start pulling data / pushing data
+    \item OrgB is restricted by the ACL system of ServerA in what they can fetch
+    \item OrgB and OrgA can both impose additional filter rules
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Synchronisation}
+  \begin{itemize}
+    \item Current implementations
+    \begin{itemize}
+        \item MISP - MISP (pull, push)
+        \item MISP - Cerebrate (pull)
+    \end{itemize}
+    \item Coming soon
+    \begin{itemize}
+        \item Cerebrate - Cerebrate (pull)
+    \end{itemize}
+    \item Coming next year
+    \begin{itemize}
+        \item Cerebrate - MISP (pull push)
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Pull}
   \begin{center}
-    \includegraphics[scale=0.5]{queryACL.png}
-    \includegraphics[scale=0.5]{queryACLPrint.png}
+    \includegraphics[scale=0.5]{pull.png}
   \end{center}
 \end{frame}
 
 \begin{frame}
-  \frametitle{ACL}
+  \frametitle{Push}
   \begin{center}
-    \includegraphics[scale=0.5]{ACLList.png}
+    \includegraphics[scale=0.5]{push.png}
   \end{center}
 \end{frame}
-
 
