@@ -1,0 +1,221 @@
+% DO NOT COMPILE THIS FILE DIRECTLY!
+% This is included by the other .tex files.
+
+\begin{frame}[t,plain]
+\titlepage
+\end{frame}
+
+\begin{frame}
+	\frametitle{Plan for this session}
+	\begin{itemize}
+		\item What is Cerebrate? (tl;dr edition)
+                \item Why do we need integration modules?
+                \item What does an integration module look like?
+		\item Integrating tools with Cerebrate
+                \item Interconnection requests
+                \item Future plans / discussion
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{What is Cerebrate?}
+	\begin{itemize}
+                \item Central tool for the Melicertes project...
+                \item ...but also a stand-alone open-source community management and orchestration tool
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{What issues is it trying to tackle?}
+	\begin{itemize}
+                \item Repository of organisations and individuals along with associated public keys
+                \item Management of trust circle objects
+                \item Exchange of contact and sharing group information
+                \item Instrumentation of local tool interconnections
+                \item Local tool fleet management
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{What are integration modules?}
+	\begin{itemize}
+                \item Tool agnostic integration layer
+                \item Integrate other tools with MISP for a set of tasks
+         	\begin{itemize}
+		        \item Manage tools
+		        \item Feed the tool with / feed off the tool's contact information
+                        \item Orchestrate the interconnection between local tools
+                        \item Open a dialogue with partners to interconnect tools
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Design goals}
+	\begin{itemize}
+                \item Keep it simplistic
+                \item Monolithic packages
+                \item Using a common toolkit for ease of integration
+                \item Have the ability to go beyond the default required functionalities
+                \item Reuse visualisation systems of Cerebrate
+                \item Still heavily WiP
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{What is available today?}
+	\begin{itemize}
+                \item Some sample modules
+                \begin{itemize}
+                    \item Skeleton module
+                    \item MISP connector
+                \end{itemize}
+                \item Auto detection, custom / default module separation
+                \item Local tool management
+                \item Diagnostics
+                \item Remote tool interconnection negotiation
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{What is missing?}
+	\begin{itemize}
+                \item Mass / fleet management
+                \item Local tool interconnections
+                \item Opening up the local tool functions to the API
+                \item More implementations to test our design against!
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Demo time}
+	\begin{itemize}
+                \item How does the MISP connector work?
+                \item How to issue interconnection requests?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Let us dig into the module design}
+	\begin{itemize}
+                \item Each module is a php file in cerebrate/src/Lib/custom (ending in *Connector.php)
+                \item A standard toolkit is always extended (CommonConnectorTools.php)
+                \item Each module consists of:
+         	\begin{itemize}
+	                \item Meta information
+                        \item Custom exposed function mapping
+                        \item Default functions for diagnostics
+                        \item Default functions for interconnections
+                        \item Custom exposed functions
+                        \item Private helper functions
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Meta information}
+	\begin{itemize}
+                \item name: The name of the module as shown in selectors, inbox messages, etc
+                \item connectorName: The name of the module - this is the canonical name used across the application
+                \item version: The version of the connector (not the connected tool)
+		\item description: A description of the connector in freetext
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Exposed function mapping}
+	\begin{itemize}
+                \item List of custom functions with their configurations
+                \item Two main types so far:
+        	\begin{itemize}
+	                \item Index: list of items with their associated actions
+	                \item form: GET/POST pair for interacting with the tool
+        	\end{itemize}
+                \item Two main scopes so far:
+        	\begin{itemize}
+	                \item child: Automatically added accordion below the connection's metadata
+	                \item childAction: Function that can be placed anywhere (index action, chained/embedded actions)
+        	\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Default function for diagnostics}
+	\begin{itemize}
+		\item health(): returns a standardised message about the current status of the connection
+		\item returns a list with 2 data points
+		\begin{itemize}
+			\item status: UNKNOWN/OK/ISSUES/ERROR
+                        \item message: message shown along with the status
+		\end{itemize}
+		\item For more in-depth diagnostics / error reporting, use custom actions!
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Default functions for interconnections}
+	\begin{itemize}
+		\item 3-way handhsake
+                \item functions need to be implemented to interact with the local tool
+		\begin{itemize}
+			\item initiateConnection(): returns connection payload
+                        \item acceptConnection(): returns connection payload
+                        \item finaliseConnection(): returns boolean
+		\end{itemize}
+		\item Automatically tied into the messaging system
+                \item Built in repeating, discarding, error handling in cerebrate
+                \item Looped through common tools, state handling done automatically
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Exploring the modules}
+	\begin{itemize}
+		\item Skeleton module
+                \item MISP module
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Local tool interconnections}
+	\begin{itemize}
+		\item Create plugins that purely serve to connect different local tools
+                \item Ownership of the modules was a difficulty to handle if we kept it in the main modules
+                \item Unlike the cross cerebrate interconnections for like tools, the connection can be done in one shot
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Future plans - fleet management}
+	\begin{itemize}
+		\item Push settings / data to multiple tools of the same type in one shot
+                \item Visualise your connected tools
+                \item More fine grained diagnostics
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{API}
+	\begin{itemize}
+		\item Currently the modules are built for UI only
+                \item This will change and we'll add tools to easily create API responses
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Discussion}
+	\begin{itemize}
+		\item What would you like to see to be able to integrate your tool?
+                \item Do you have tools in mind that you would like to integrate?
+                \item What issues do you foresee with the implementation?
+                	\begin{itemize}
+		                \item Difficulty?
+		                \item Lack of functionalities?
+		                \item Lack of apetite before it's more mature?
+                	\end{itemize}
+	\end{itemize}
+\end{frame}
+
+
