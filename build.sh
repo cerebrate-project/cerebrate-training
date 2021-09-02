@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 
-slidedecks=("c.1-cerebrate-internal")
+slidedecks=("c.1-cerebrate-internal c.2-cerebrate-code-review c.5-integration-layer")
 mkdir output
 export TEXINPUTS=::`pwd`/themes/
 echo ${TEXINPUTS}

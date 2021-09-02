@@ -6,11 +6,11 @@ All the materials are available with the complete LaTeX source code meant to ass
 
 ## Materials
 
-
 | Slides (PDF) | Source Code |
 | ------------ | ----------- |
-| [c.1-cerebrate-internal](https://github.com/cerebrate-project/cerebrate-training/blob/main/published/c.1-cerebrate-internal.pdf) | [source](https://github.com/cerebrate-project/cerebrate-training/tree/master/c.1-cerebrate-internal) |
-
+| [c.1-cerebrate-internal](https://github.com/cerebrate-project/cerebrate-training/blob/main/published/c.1-cerebrate-internal.pdf) | [source](https://github.com/cerebrate-project/cerebrate-training/tree/main/c.1-cerebrate-internal) |
+| [c.2-cerebrate-code-review](https://github.com/cerebrate-project/cerebrate-training/blob/main/published/c.2-cerebrate-code-review.pdf) | [source](https://github.com/cerebrate-project/cerebrate-training/tree/main/c.2-cerebrate-code-review/) |
+| [c.5-integration-layer](https://github.com/cerebrate-project/cerebrate-training/blob/main/published/c.5-integration-layer.pdf) | [source](https://github.com/cerebrate-project/cerebrate-training/tree/main/c.5-integration-layer/) |
 
 ## License and Attribution
 
