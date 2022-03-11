@@ -1,0 +1,126 @@
+% DO NOT COMPILE THIS FILE DIRECTLY!
+% This is included by the other .tex files.
+
+\begin{frame}[t,plain]
+\titlepage
+\end{frame}
+
+\begin{frame}
+	\frametitle{A quick introduction to Cerebrate}
+	\begin{itemize}
+		\item What is Cerebrate?
+                \item Why have we been working on this?
+                \item What sort of benefits does this bring for MISP communities?
+                \item What is there and where are we headed?
+                \item Demonstration
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{What is Cerebrate?}
+	\begin{itemize}
+                \item Open source {\bf community management and orchestration} tool
+                \item Central tool for the Melicertes 2 project
+                \item Tight integration with various open-source tools
+                \item Planned as the primary MISP management tool
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{What issues is it trying to tackle?}
+	\begin{itemize}
+                \item Community management
+		\begin{itemize}
+                    \item {\bf Repository} of organisations and individuals
+                    \item Management of {\bf sharing groups}
+                    \item {\bf Exchange} of contact and sharing group information
+                    \item {\bf Constituency} lookups and searching 
+                    \item Cryptographic key lookup for {\bf information signing}
+		\end{itemize}
+                \item Local tool management
+		\begin{itemize}
+                    \item Instrumentation of {\bf local tool interconnections}
+                    \item Local tool {\bf fleet management}
+                    \item {\bf Feeding} the local tools with Cerebrate data
+                \end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{So where are we today?}
+	\begin{itemize}
+                \item Currently in {\bf pilot} phase
+                \item We're close to releasing {\bf v1.5}
+                \item Still plenty of things for us to do, we view Cerebrate as a {\bf long term} project
+                \item If you want to get started - \url{https://github.com/cerebrate/cerebrate}
+                \item Expect many more {\bf updates}, features in the future
+                \item We encourage everyone to {\bf get involved}, try it out, let us know what doesn't work for you
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{What is available currently?}
+	\begin{itemize}
+                \item A set of {\bf Common functionalities}
+                \item {\bf Contact Database}
+                \item {\bf Sharing group management}
+                \item {\bf Cerebrate to Cerebrate synchronisation}
+                \item {\bf Mailing list management}
+                \item Local tool orchestration - {\bf integration modules}
+                \item {\bf Inbox} system
+                \item Local tool {\bf fleet management}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Common functionalities}
+	\begin{itemize}
+                \item {\bf Team based user management} with customisable RBAC rules
+                \item Optional support for external user and {\bf identity management via keycloak}
+                \item Powerful {\bf API}
+                \item {\bf Management tools} for administrators
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Contact database}
+	\begin{itemize}
+                \item Index of {\bf Organisations and Individuals}
+                \item Flexible meta-data model (community specific, constituency, etc)
+                \item Content aware {\bf search functionalities}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Sharing groups}
+	\begin{itemize}
+                \item Similar to {\bf MISP's implementation}
+                \item Create and manage sharing groups from Cerebrate
+                \item MISPs can {\bf ingest the sharing groups} for information sharing
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Synchronisation}
+	\begin{itemize}
+                \item {\bf Connect} Cerebrates to one another
+                \item {\bf Diagnose} connectivity issues
+                \item Remotely {\bf browse the data} of the remote instance
+                \item {\bf Fetch} organisation, individual, sharing group data
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Integration modules}
+	\begin{itemize}
+                \item Tool agnostic integration layer
+                \item Integrate other tools with Cerebrate for a set of tasks
+         	\begin{itemize}
+		        \item {\bf Manage} tools
+		        \item {\bf Feed} the tool with / feed off the tool's contact information
+                        \item {\bf Orchestrate} the {\bf interconnection} between local tools
+                        \item Open a {\bf dialogue} with partners to interconnect tools
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
