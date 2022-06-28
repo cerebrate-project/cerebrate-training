@@ -24,7 +24,15 @@
 \begin{frame}
 \frametitle{MeliCERTes II: a quick recap of the morning session}
     \begin{itemize}
-        \item {}
+        \item MeliCERTes
+        \item Common tooling for CSIRTs
+        \item Cerebrate a central component of the new tooling
+        \item Takes care of:
+        \begin{itemize}
+            \item Contact management
+            \item orchestration
+            \item Sharing group distribution and management
+        \end{itemize}
     \end{itemize}
 \end{frame}
 
@@ -48,21 +56,20 @@
         \item \textbf{Bridge the gap} between between communities
         \item Sharing with peers that face \textbf{similar threats}
         \item \textbf{Reuse} of TTPs across sectors
-        \item \textbf{Hybrid threat} How seemingly unrelated things may be interesting to correlate
+        \item \textbf{Hybrid threats} How seemingly unrelated things may be interesting to correlate
         \item \textbf{Spread the love}, as our field is ahead of several other sectors when it comes to information sharing
     \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{Issues we're trying to solve}
-    However, more communities means more issues
-
+    However, broader and more diverse communities lead to more issues
     \begin{itemize}
         \item {Non-technical issues}
         \begin{itemize}
             \item Sharing difficulties in terms of social interactions (e.g trust)
             \begin{itemize}
-                \item \includegraphics[width=80px]{pictures/firstcon-22.png} greatly help in that aspect!
+                \item \includegraphics[width=80px]{pictures/firstcon-22.png} greatly helps in that aspect!
             \end{itemize}
             \item Lots of points of contacts
         \end{itemize}
@@ -71,9 +78,10 @@
     \begin{itemize}
         \item {Technical issues}
         \begin{itemize}
+            \item Centralised identity management 
             \item Data might change or evolve over time
-            \item (MISP specific) Loads of UUIDs to manually process
-            \item (MISP specific) Loads of Sharing Group issues / inconsistencies
+            \item Loads of UUIDs to manually process
+            \item Distribution list management is difficult across communities
         \end{itemize}
     \end{itemize}
     \begin{center}
@@ -124,9 +132,9 @@
 \begin{frame}
 \frametitle{Issues we're trying to solve with Cerebrate}
     \begin{itemize}
-        \item Data model customisable to adapt it to each community
+        \item Customisable data model adaptable to each community
         \begin{itemize}
-            \item Based on the sheer amount of different type of communities, \textbf{it's a must}
+            \item Based on the sheer amount of different types of communities, \textbf{it's a must}
         \end{itemize}
         \item Sharing group management
         \item Synchronisation and lookup system
@@ -146,9 +154,9 @@
     \begin{itemize}
         \item Central tool for the \textbf{Melicertes 2 project} (Co-funded by the EU as a CEF project - SMART 2018/1024)
         \item Rich \textbf{Contact Database}
-        \item Tightly coupled management system and companion for MISP (and other tool?)
+        \item Tightly coupled management system and companion for MISP (and other tools)
         \begin{itemize}
-            \item Get in touch with us for integration!
+            \item Get in touch with us if you need help building integrations!
         \end{itemize}
         \item Planned as the primary MISP \textbf{fleet management} tool
     \end{itemize}
@@ -177,12 +185,12 @@
 \begin{frame}
 \frametitle{Goals and design}
     \begin{itemize}
-        \item Built with tool integration in mind, acting as a contact database companion
+        \item Built with tool integration in mind, acting as a contact database
     \end{itemize}
     \begin{center}
         \includegraphics[width=0.85\linewidth]{pictures/misp-cerebrate.png}\\
 
-        MISP is able to look Organisations \& Sharing Group up in Cerebrate
+        MISP is able to look up Organisations \& Sharing Group in Cerebrate
     \end{center}
 \end{frame}
 
@@ -220,7 +228,7 @@
         \item These \texttt{meta-fields} are part of a larger structure called \texttt{meta-templates}
         \item Support of multiple templates used by various entities out there
         \begin{itemize}
-            \item FIRST Directory
+            \item {\bf FIRST Directory}
             \item ENISA CSIRT inventory
             \item CSIRT Constituency (CIDR blocks, AS Numbers, ...)
         \end{itemize}
@@ -251,11 +259,12 @@
 \begin{frame}
 \frametitle{Cerebrate's contact database: Sharing group management}
     \begin{itemize}
-        \item easy way to \textbf{create} and \textbf{share} distribution lists
+        \item Easy way to \textbf{create} and \textbf{share} distribution lists
         \item Allow sharing groups to be \textbf{reusable}
-        \item Circumvent limitation of traditional Threat Intelligence Sharing Platform
+        \item Circumvent limitations of traditional Threat Intelligence Sharing Platform
         \begin{itemize}
-            \item Sharing group not shared unless the recipient should received data + duplication
+            \item The exchange of sharing groups on creation / modification rather than on data exchange
+            \item Avoids the duplication of similar sharing groups
         \end{itemize}
     \end{itemize}
 \end{frame}
@@ -271,9 +280,9 @@
 \frametitle{Cerebrate's contact database: Identity and Signing}
     \begin{itemize}
         \item Cerebrate can act as a trusted contact database containing cryptographic keys (PGP, S/MIME)
-        \item Which can be used by other application to sign and validation information
+        \item Which can be used by other application to sign and validate information
         \begin{itemize}
-            \item Cfr MISP's protected Event feature \includegraphics[width=0.09\linewidth]{pictures/clippy-solo.png}
+            \item See MISP's protected Event feature \includegraphics[width=0.09\linewidth]{pictures/clippy-solo.png}
         \end{itemize}
     \end{itemize}
 \end{frame}
@@ -288,9 +297,9 @@
 \begin{frame}
 \frametitle{Cerebrate's contact database: Open Directory}
     \begin{itemize}
-        \item Cerebrate can be configured to \textbf{open} its contact database to \textbf{anyone} (no auth required)
+        \item Cerebrate can be configured to act as an \textbf{open} directory of contact information
         \item Other tools (including other Cerebrate nodes) can use this directory
-        \item Basically an open bar contact lookup database
+        \item Allows for information and information source validation
     \end{itemize}
     \begin{center}
         \includegraphics[width=0.8\linewidth]{pictures/open-directory.png}
@@ -299,7 +308,7 @@
 
 \begin{frame}
 \frametitle{Data sharing}
-Basically the same strategy used in MISP:
+Basically the same strategy as the one used in MISP:
     \begin{itemize}
         \item \textbf{Connect} with other Cerebrate nodes
         \item \textbf{Diagnose} connectivity issues
@@ -326,7 +335,7 @@ Basically the same strategy used in MISP:
 \frametitle{Data sharing: Synchronisation strategies}
 Two synchronisation strategies:
     \begin{enumerate}
-        \item \textbf{Standard}: Fetch and save only new records
+        \item \textbf{Standard}: Only fetch and save new records
         \item \textbf{Trusted upstream source}: Remote Cerebrate acts as an authoritative instance
     \end{enumerate}
     \begin{center}
@@ -336,9 +345,9 @@ Two synchronisation strategies:
 
 \begin{frame}
 \frametitle{Managing local tools}
-Why would Cerebrate have an integration with other tools?
+Why would Cerebrate have integration with other tools?
     \begin{itemize}
-        \item In information sharing, it's essential to be able to attribute data to its creator
+        \item To support information sharing, being able to validate information sources is crucial
         \item Traditional information sharing software stacks have to have their own organisation database
         \item Why re-invent the wheel everytime?
     \end{itemize}
@@ -349,10 +358,10 @@ Why would Cerebrate have an integration with other tools?
 
 \begin{frame}
 \frametitle{Managing local tools}
-There will enivetably be integration between local tools and Cerebrate. Why not go a step further?
+There will inevitably be integration between local tools and Cerebrate. Why not go a step further?
     \begin{itemize}
         \item Cerebrate exposes a modular system to manage these local tools
-        \item Based on a configuration file, user interfaces can be created to visualize data and instruct local tools to perform operation
+        \item Based on a configuration file, user interfaces can be created to visualise data and instruct local tools to perform operations
     \end{itemize}
     \begin{center}
         \includegraphics[width=0.7\linewidth]{pictures/github-local-tool.png}
@@ -362,8 +371,8 @@ There will enivetably be integration between local tools and Cerebrate. Why not 
 \begin{frame}
 \frametitle{Local tool: MISP Connector capabilities}
     \begin{itemize}
-        \item \textbf{Configure} a MISP instance via server settings
-        \item \textbf{Fetch} Organisation \& Sharing Group
+        \item \textbf{Configure} a MISP instances via server settings
+        \item \textbf{Fetch} Organisations \& Sharing Groups
         \item \textbf{Diagnose} other connected MISP servers
         \item \textbf{Manage} users, ...
     \end{itemize}
@@ -399,6 +408,7 @@ There will enivetably be integration between local tools and Cerebrate. Why not 
 \frametitle{Local tool interconnection via Cerebrate}
     \begin{itemize}
         \item Cerebrate's main goal is to \textbf{ease community management}
+        \item Select which local tools are meant to be exposed to the community for requests
         \item Open dialogues to community members to request tool-to-tool interconnections
     \end{itemize}
 \end{frame}
