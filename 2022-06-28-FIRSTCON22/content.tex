@@ -5,172 +5,398 @@
 \titlepage
 \end{frame}
 
+
 \begin{frame}
-	\frametitle{This session is meant to answer the following}
-	\begin{itemize}
-		\item (Re-)introduce Cerebrate
-                \item Brief summary over the tasks it is meant to accomplish
-                \item Cerebrate 1.0 release
-                \item Why should MISP users care?
-                \item Where are we headed?
-                \item Demo time!
-	\end{itemize}
+\frametitle{Who are we ?}
+    \begin{center}
+        \includegraphics[width=0.4\linewidth]{pictures/circl.png}
+    \end{center}
+    \begin{itemize}
+        \item The Computer Incident Response Center Luxembourg (CIRCL)
+        \item CIRCL is the CERT for the private sector, communes and non-governmental entities in Luxembourg
+        \item CIRCL leads the development of the open-source MISP threat intelligence platform
+        \begin{itemize}
+            \item As well as running multiple large MISP communities performain active daily threat-intelligence sharing
+        \end{itemize}
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
-	\frametitle{What is Cerebrate?}
-	\begin{itemize}
-                \item Open source {\bf community management and orchestration} tool
-                \item Central tool for the Melicertes 2 project (Co-funded by the EU as a CEF project)
-                \begin{itemize}
-                    \item Project for the CSIRT network building a common set of tools and services for the national CSIRTs
-                \end{itemize}
-                \item Tight integration with various open-source tools
-                \item Planned as the primary MISP management tool
-                \item Test bed for the new tech stack and a host of new features coming to MISP
-	\end{itemize}
+\frametitle{MeliCERTes II: a quick recap of the morning session}
+    \begin{itemize}
+        \item {}
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Selfish motivations from a MISP perspective}
-	\begin{itemize}
-            \item {\bf Deficiencies} in our current tool chain
+\frametitle{Some stats about one of our MISP instance: MISPPriv (1)}
+    \includegraphics[width=0.45\linewidth]{pictures/misppriv-usage.png}
+    \includegraphics[width=0.45\linewidth]{pictures/misppriv-user-org-stats.png}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Some stats about one of our MISP instance: MISPPriv (2)}
+    \begin{center}
+        \includegraphics[width=1.1\linewidth]{pictures/bokeh_new_org.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Issues we're trying to solve}
+    Rising number of communities is great!
+    \begin{itemize}
+        \item \textbf{Bridge the gap} between between communities
+        \item Sharing with peers that face \textbf{similar threats}
+        \item \textbf{Reuse} of TTPs across sectors
+        \item \textbf{Hybrid threat} How seemingly unrelated things may be interesting to correlate
+        \item \textbf{Spread the love}, as our field is ahead of several other sectors when it comes to information sharing
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Issues we're trying to solve}
+    However, more communities means more issues
+
+    \begin{itemize}
+        \item {Non-technical issues}
+        \begin{itemize}
+            \item Sharing difficulties in terms of social interactions (e.g trust)
             \begin{itemize}
-                \item Do I really have to jump through hoops and long e-mail chains to {\bf onboard new members}?
-                \item How do I {\bf find trusted information} on who an organisation is in MISP?
-                \item How can I {\bf manage a large cluster of MISPs} without tedious manual labour?
-                \item If I run a community through MISP, how can I reuse my member information for other community tasks such as mailing lists?
-                \item Information signing has been on the MISP roadmap for a long time - where do we get ground truths for a community from?
+                \item \includegraphics[width=80px]{pictures/firstcon-22.png} greatly help in that aspect!
+            \end{itemize}
+            \item Lots of points of contacts
+        \end{itemize}
+    \end{itemize}
+
+    \begin{itemize}
+        \item {Technical issues}
+        \begin{itemize}
+            \item Data might change or evolve over time
+            \item (MISP specific) Loads of UUIDs to manually process
+            \item (MISP specific) Loads of Sharing Group issues / inconsistencies
+        \end{itemize}
+    \end{itemize}
+    \begin{center}
+        \includegraphics[width=0.8\linewidth]{pictures/org-circl.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Issues we're trying to solve with Cerebrate}
+    \begin{minipage}{0.8\textwidth}
+        \begin{itemize}
+            \item Constituencies of organisations
+            \begin{itemize}
+                \item Geographic \& sectorial
+                \item But also technical: CIDR blocks \& AS Numbers
+            \end{itemize}
+            \item Cryptographic key lookup for information signing
+            \begin{itemize}
+                \item MISP's protected event feature (New since MISP v2.4.156)
             \end{itemize}
         \end{itemize}
+    \end{minipage}
+    \begin{minipage}{0.19\textwidth}
+        % \includegraphics[width=0.8\linewidth]{pictures/clippy-hint.png}
+    \end{minipage}
 \end{frame}
 
 \begin{frame}
-	\frametitle{What issues is it trying to tackle?}
-	\begin{itemize}
-                \item Community management
-		\begin{itemize}
-                    \item {\bf Repository} of organisations and individuals
-                    \item Management of {\bf sharing groups}
-                    \item {\bf Exchange} of contact and sharing group information
-                    \item Cryptographic key lookup for {\bf information signing}
-		\end{itemize}
-                \item Local tool management
-		\begin{itemize}
-                    \item Instrumentation of {\bf local tool interconnections}
-                    \item Local tool {\bf fleet management}
-                    \item {\bf Feeding} the local tools with Cerebrate data
-                \end{itemize}
-	\end{itemize}
+\frametitle{Issues we're trying to solve with Cerebrate}
+    \begin{minipage}{0.8\textwidth}
+        \begin{itemize}
+            \item Constituencies of organisations
+            \begin{itemize}
+                \item Geographic \& sectorial
+                \item But also technical: CIDR blocks \& AS Numbers
+            \end{itemize}
+            \item Cryptographic key lookup for information signing
+            \begin{itemize}
+                \item MISP's protected event feature (New since MISP v2.4.156)
+            \end{itemize}
+        \end{itemize}
+    \end{minipage}
+    \begin{minipage}{0.19\textwidth}
+        \includegraphics[width=0.8\linewidth]{pictures/clippy-hint.png}
+    \end{minipage}
 \end{frame}
 
+\begin{frame}
+\frametitle{Issues we're trying to solve with Cerebrate}
+    \begin{itemize}
+        \item Data model customisable to adapt it to each community
+        \begin{itemize}
+            \item Based on the sheer amount of different type of communities, \textbf{it's a must}
+        \end{itemize}
+        \item Sharing group management
+        \item Synchronisation and lookup system
+    \end{itemize}
+\end{frame}
 
 \begin{frame}
-\frametitle{Interconnections}
+\frametitle{Our attempt at solving them: Cerebrate}
+    \begin{itemize}
+        \item Open source community management and orchestration tool
+    \end{itemize}
     \begin{center}
-        \includegraphics[scale=0.4]{objectives.png}
+        \includegraphics[width=0.15\linewidth]{pictures/logo.png}
+        \linebreak
+        \includegraphics[width=0.99\linewidth]{pictures/cerebrate-github.png}
+    \end{center}
+    \begin{itemize}
+        \item Central tool for the \textbf{Melicertes 2 project} (Co-funded by the EU as a CEF project - SMART 2018/1024)
+        \item Rich \textbf{Contact Database}
+        \item Tightly coupled management system and companion for MISP (and other tool?)
+        \begin{itemize}
+            \item Get in touch with us for integration!
+        \end{itemize}
+        \item Planned as the primary MISP \textbf{fleet management} tool
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Goals and design}
+    \begin{itemize}
+        \item Goals: Simplicity, lightweight and open-source
+        \item Technologies used: PHP, cakephp4, BS5, ...
+            \begin{itemize}
+                \item (almost) the same as in MISP for easier \textbf{maintainability} and \textbf{code re-use}
+            \end{itemize}
+        \item IAM centric design
+            \begin{itemize}
+                \item Tightly integrated with Keycloak
+            \end{itemize}
+        \item Core functionalities: Auditing, API
+            \begin{itemize}
+                \item Any changes should be easily accessible to counter errors or foul plays
+                \item From our perspective, automation and integration is essential and should be as easy as possible
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Goals and design}
+    \begin{itemize}
+        \item Built with tool integration in mind, acting as a contact database companion
+    \end{itemize}
+    \begin{center}
+        \includegraphics[width=0.85\linewidth]{pictures/misp-cerebrate.png}\\
+
+        MISP is able to look Organisations \& Sharing Group up in Cerebrate
     \end{center}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Cerebrate 1.0 release}
-	\begin{itemize}
-                \item {\bf Released} as October 23
-                \item Initial version has the {\bf essential functionalities} to get going included
-                \item We highly encourage everyone to {\bf get involved} ASAP and help us mold the tool
-                \item {\bf Easy to set up}, low requirements (native or docker installs available)
-	\end{itemize}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Cerebrate 1.0 features}
-	\begin{itemize}
-            \item {\bf Contact database} \- information on organisations and individuals
-            \item {\bf Public key store} for information validation and secure communications
-            \item Centralised {\bf sharing group management}
-            \item Cerebrate to Cerebrate {\bf synchronisation}
-            \item Local integration {\bf module system}
-            \item Currently with a {\bf MISP module} included
-	\end{itemize}
-\end{frame}
-
-
-\begin{frame}
-	\frametitle{Cerebrate 1.0 features}
-	\begin{itemize}
-            \item Cerebrate to Cerebrate {\bf local tool interconnection}
-            \item Local tool {\bf fleet management} features
-            \item {\bf Ingestion tools} for community specific {\bf contact database mappings}
-            \begin{itemize}
-            currently supporting ENISA's and FIRST.org's mappings
-            \end{itemize}
-            \item Tight integration with {\bf Keycloak} (optional)
-	\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{MISP to MISP connection request}
-\includegraphics[scale=0.3]{connection_request.png}
-\end{frame}
-
-\begin{frame}
-\frametitle{MISP to MISP connection request}
+\frametitle{Cerebrate's place in a typical CSIRT software stack}
     \begin{center}
-        \includegraphics[scale=0.28]{connection_request2.png}
+        \includegraphics[width=0.42\linewidth]{pictures/software-stack.png}
     \end{center}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Further tangible benefits for MISP}
-	\begin{itemize}
-            \item MISP's software stack could use a refresher
-            \item Cerebrate and MISP share a large part of their code-base and supporting libraries
-            \item The similarities in many aspects are no co-incidence
-            \item We use Cerebrate to prepare the tooling and gradually shift the MISP code-base to a new stack
-            \item CRUD functionalities, UI generation, ACL, API handling are all modernised MISP libraries
-	\end{itemize}
+\frametitle{Cerebrate's contact database}
+    \begin{itemize}
+        \item Contact database for the CSIRT network
+        \begin{itemize}
+            \item Common contact fields such as \texttt{UUID}, \texttt{name}, \texttt{contact email address}, \texttt{nationality}, \texttt{URL}, ...
+        \end{itemize}
+    \end{itemize}
+    \begin{center}
+        \includegraphics[width=0.8\linewidth]{pictures/contact-database-1.png}
+    \end{center}
 \end{frame}
 
 \begin{frame}
-	\frametitle{So what will this give MISP once we port it to Cerebrate's codebase?}
-	\begin{itemize}
-            \item {\bf Modern stack} (CakePHP 4.x, PHP7.4/8+, Bootstrap 5)
-            \item Better {\bf performance} (in large part due to CakePHP 4.x's database handling improvements)
-            \item Complete {\bf new}, modern, responsive, themeable {\bf UI}
-            \item A chance to {\bf clean up} a host of {\bf mistakes} we've made over the years
-            \item {\bf Reworked} internal {\bf database} (for example much improved indexing)
-            \item A new upgrade and configuration system with a host of improvements
-	\end{itemize}
+\frametitle{Cerebrate's contact database}
+    \begin{center}
+        \includegraphics[width=0.99\linewidth]{pictures/contact-database-2.png}
+    \end{center}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Cerebrate 1.1}
-	\begin{itemize}
-            \item Release is planned for {\bf next week}
-            \item Main new features
-            \begin{itemize}
-                \item Reworked meta-field system (validation, filtering, etc)
-                \item Audit system (port of Jakub Onderka's implementation from MISP)
-                \item Mailing list management and instrumentation
-                \item Improved organisation self-management
-            \end{itemize}
-	\end{itemize}
+\frametitle{Cerebrate's contact database: Meta-fields}
+    \begin{itemize}
+        \item Flexible system to store additional information: \texttt{meta-fields} (KV-store)
+        \item These \texttt{meta-fields} are part of a larger structure called \texttt{meta-templates}
+        \item Support of multiple templates used by various entities out there
+        \begin{itemize}
+            \item FIRST Directory
+            \item ENISA CSIRT inventory
+            \item CSIRT Constituency (CIDR blocks, AS Numbers, ...)
+        \end{itemize}
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
-	\frametitle{What are we working on besides that?}
-	\begin{itemize}
-                \item Obviously moving MISP to the same feature-set / tech stack
-                \item Further integrations with other tools
-                \item Fleshing out the MISP monitoring and management
-                \item Setting up trusted, community centric Cerebrate nodes
-                \item Improving a long list of functionalities
-	\end{itemize}
+\frametitle{Cerebrate's contact database: Meta-fields}
+\begin{center}
+    \includegraphics[width=0.99\linewidth]{pictures/meta-fields-first.png}
+\end{center}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Enough blabla}
-	\begin{itemize}
-                \item {\bf Demo time!}
-	\end{itemize}
+\frametitle{Cerebrate's contact database: Meta-fields}
+\begin{center}
+    \includegraphics[width=0.99\linewidth]{pictures/meta-templates-first.png}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Cerebrate's contact database: Meta-fields}
+\begin{center}
+    \includegraphics[width=0.99\linewidth]{pictures/meta-template-repo.png}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Cerebrate's contact database: Sharing group management}
+    \begin{itemize}
+        \item easy way to \textbf{create} and \textbf{share} distribution lists
+        \item Allow sharing groups to be \textbf{reusable}
+        \item Circumvent limitation of traditional Threat Intelligence Sharing Platform
+        \begin{itemize}
+            \item Sharing group not shared unless the recipient should received data + duplication
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Cerebrate's contact database: Sharing group management}
+    \begin{center}
+        \includegraphics[width=0.9\linewidth]{pictures/sharinggroup.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Cerebrate's contact database: Identity and Signing}
+    \begin{itemize}
+        \item Cerebrate can act as a trusted contact database containing cryptographic keys (PGP, S/MIME)
+        \item Which can be used by other application to sign and validation information
+        \begin{itemize}
+            \item Cfr MISP's protected Event feature \includegraphics[width=0.09\linewidth]{pictures/clippy-solo.png}
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Cerebrate's contact database: Identity and Signing}
+    \begin{center}
+        \includegraphics[width=0.95\linewidth]{pictures/pgp.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Cerebrate's contact database: Open Directory}
+    \begin{itemize}
+        \item Cerebrate can be configured to \textbf{open} its contact database to \textbf{anyone} (no auth required)
+        \item Other tools (including other Cerebrate nodes) can use this directory
+        \item Basically an open bar contact lookup database
+    \end{itemize}
+    \begin{center}
+        \includegraphics[width=0.8\linewidth]{pictures/open-directory.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Data sharing}
+Basically the same strategy used in MISP:
+    \begin{itemize}
+        \item \textbf{Connect} with other Cerebrate nodes
+        \item \textbf{Diagnose} connectivity issues
+        \item Remotely \textbf{browse} data of the other node
+        \item \textbf{Fetch and save} organisation, individual, sharing-group data
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Data sharing}
+    \begin{center}
+        \includegraphics[width=0.95\linewidth]{pictures/brood-index.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Data sharing}
+    \begin{center}
+        \includegraphics[width=0.95\linewidth]{pictures/brood-view.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Data sharing: Synchronisation strategies}
+Two synchronisation strategies:
+    \begin{enumerate}
+        \item \textbf{Standard}: Fetch and save only new records
+        \item \textbf{Trusted upstream source}: Remote Cerebrate acts as an authoritative instance
+    \end{enumerate}
+    \begin{center}
+        \includegraphics[width=0.7\linewidth]{pictures/brood-edit.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Managing local tools}
+Why would Cerebrate have an integration with other tools?
+    \begin{itemize}
+        \item In information sharing, it's essential to be able to attribute data to its creator
+        \item Traditional information sharing software stacks have to have their own organisation database
+        \item Why re-invent the wheel everytime?
+    \end{itemize}
+    \begin{center}
+        \includegraphics[width=0.2\linewidth]{pictures/software-stack.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Managing local tools}
+There will enivetably be integration between local tools and Cerebrate. Why not go a step further?
+    \begin{itemize}
+        \item Cerebrate exposes a modular system to manage these local tools
+        \item Based on a configuration file, user interfaces can be created to visualize data and instruct local tools to perform operation
+    \end{itemize}
+    \begin{center}
+        \includegraphics[width=0.7\linewidth]{pictures/github-local-tool.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Local tool: MISP Connector}
+    \begin{itemize}
+        \item {}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Enough}
+    \begin{itemize}
+        \item {}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Enough}
+    \begin{itemize}
+        \item {}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Enough}
+    \begin{itemize}
+        \item {}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Enough}
+    \begin{itemize}
+        \item {}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Enough}
+    \begin{itemize}
+        \item {}
+    \end{itemize}
 \end{frame}
