@@ -330,18 +330,6 @@ Basically the same strategy as the one used in MISP:
 \end{frame}
 
 \begin{frame}
-\frametitle{Data sharing: Planned synchronisation strategies}
-Two synchronisation strategies:
-    \begin{enumerate}
-        \item \textbf{Standard}: Only fetch and save new records
-        \item \textbf{Trusted upstream source}: Remote Cerebrate acts as an authoritative instance
-    \end{enumerate}
-    \begin{center}
-        \includegraphics[width=0.7\linewidth]{pictures/brood-edit.png}
-    \end{center}
-\end{frame}
-
-\begin{frame}
 \frametitle{Managing local tools}
 Why would Cerebrate have integration with other tools?
     \begin{itemize}
@@ -416,27 +404,6 @@ There will inevitably be integration between local tools and Cerebrate. Why not 
     Cerebrate can leverage its access to local tool to reach out to tools from other Cerebrate nodes
     \begin{center}
         \includegraphics[width=0.85\linewidth]{pictures/tools-made-available.png}
-    \end{center}
-\end{frame}
-
-\begin{frame}
-\frametitle{Local tool interconnection via Cerebrate}
-    \begin{itemize}
-        \item Local tools can be \textbf{exposed} to other Cerebrate nodes
-        \item \textbf{Inter-connection requests} can be issued from one node to another
-        \item Following a 3-way handshake protocol, inter-connections can be:
-        \begin{itemize}
-            \item Issued
-            \item Accepted
-            \item Finalised
-        \end{itemize}
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Local tool interconnection via Cerebrate}
-    \begin{center}
-        \includegraphics[width=0.40\linewidth]{pictures/guys-chatting.png}
     \end{center}
 \end{frame}
 
