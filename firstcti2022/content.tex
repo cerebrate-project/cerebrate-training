@@ -49,11 +49,7 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}
-\frametitle{Let us take a step back and look at a use-case}
-\end{frame}
-
-
+\section{Let us take a step back and look at a use-case}
 \begin{frame}
 \frametitle{Some stats about one of our MISP instance: MISPPriv (1)}
     \includegraphics[width=0.45\linewidth]{pictures/misppriv-usage.png}
@@ -63,7 +59,7 @@
 \begin{frame}
     \frametitle{Some stats about one of our MISP instance: MISPPriv (2)}
     \begin{center}
-        \includegraphics[width=1.1\linewidth]{pictures/bokeh_new_org.png}
+        \includegraphics[width=1.0\linewidth]{pictures/bokeh_new_org.png}
     \end{center}
 \end{frame}
 
@@ -105,42 +101,18 @@
 
 \begin{frame}
 \frametitle{Issues we're trying to solve with Cerebrate}
-    \begin{minipage}{0.8\textwidth}
+    \begin{itemize}
+        \item Constituencies of organisations
         \begin{itemize}
-            \item Constituencies of organisations
-            \begin{itemize}
-                \item Geographic \& sectorial
-                \item But also technical: CIDR blocks \& AS Numbers
-            \end{itemize}
-            \item Cryptographic key lookup for information signing
-            \begin{itemize}
-                \item MISP's protected event feature
-            \end{itemize}
+            \item Geographic \& sectorial
+            \item But also technical: CIDR blocks \& AS Numbers
         \end{itemize}
-    \end{minipage}
-    \begin{minipage}{0.19\textwidth}
-        % \includegraphics[width=0.8\linewidth]{pictures/clippy-hint.png}
-    \end{minipage}
-\end{frame}
-
-\begin{frame}
-\frametitle{Issues we're trying to solve with Cerebrate}
-    \begin{minipage}{0.8\textwidth}
+        \item Cryptographic key lookup for information signing
         \begin{itemize}
-            \item Constituencies of organisations
-            \begin{itemize}
-                \item Geographic \& sectorial
-                \item But also technical: CIDR blocks \& AS Numbers
-            \end{itemize}
-            \item Cryptographic key lookup for information signing
-            \begin{itemize}
-                \item MISP's protected event feature
-            \end{itemize}
+            \item MISP's protected event feature
+            \item Future: Protected Sharing groups? 
         \end{itemize}
-    \end{minipage}
-    \begin{minipage}{0.19\textwidth}
-        \includegraphics[width=0.8\linewidth]{pictures/clippy-hint.png}
-    \end{minipage}
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -298,7 +270,7 @@
         \item Cerebrate can act as a trusted contact database containing cryptographic keys (PGP, S/MIME)
         \item Which can be used by other applications to sign and validate information
         \begin{itemize}
-            \item See MISP's protected Event feature \includegraphics[width=0.09\linewidth]{pictures/clippy-solo.png}
+            \item See MISP's protected Event feature
         \end{itemize}
     \end{itemize}
 \end{frame}
@@ -334,14 +306,14 @@ Basically the same strategy as the one used in MISP:
 \end{frame}
 
 \begin{frame}
-\frametitle{Data sharing}
+\frametitle{Data sharing - Connected Cerebrate instances}
     \begin{center}
         \includegraphics[width=0.95\linewidth]{pictures/brood-index.png}
     \end{center}
 \end{frame}
 
 \begin{frame}
-\frametitle{Data sharing}
+\frametitle{Data sharing - Browsing a remote Cerebrate instance}
     \begin{center}
         \includegraphics[width=0.95\linewidth]{pictures/brood-view.png}
     \end{center}
