@@ -1,0 +1,32 @@
+The following topics will be covered along with their implementation in Cerebrate:
+
+- Attendees will learn about a new open source platform solving several, often frustrating issues
+    - Loads of communities
+    - Loads of UUIDs to manually process
+    - Loads of points of contacts
+    - Loads of Sharing Group issues / Inconsistencies
+- An organisation registry for sharing communities utilising open source tools such as MISP
+    - Solution: Simplicity, light and open-source
+    - Technology used: PHP, cakephp4, BS5, ...
+    - Main purpose: Contact DB
+    - Flexible system to store additional information: Meta-template as KV-store
+- How to manage and serve trust information, including organisational information, cryptographic signing keys, mailing lists to a community
+    - Web interface and API to ease interaction
+    - Open directory
+    - Cerebrate information sharing and remote-trust (- Cerebrate-to-Cerebrate connection)
+    - Practical examples:
+        - Sharing group: Share an incident with your constituency
+        - Cryptographic keys repository: MISP protected event Example
+- A tool that help managing local tools
+    - Local tools: Design and Connectors
+    - Example: MISP Fleet management
+- Open dialogues to community members to request tool to tool interconnections
+    - Exposed local tools
+    - SYN, SYN/ACK, ACK ( People chatting)
+    - Local tool inter-connection via synchronisation configuration profiles
+    - Examepl: MISP Inter-connection
+- Roadmap
+    - Integration with other tools
+        - Ticketing systems
+        - Mailing list (Mailman)
+        - Messaging App (mattermost)
